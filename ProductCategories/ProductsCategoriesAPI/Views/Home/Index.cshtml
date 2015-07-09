@@ -16,13 +16,13 @@
             <h3>Search by Category ID and/or Category Name</h3>
             <input type="text" id="categorydId" size="5" />
             <input type="text" id="categoryName" size="10" />
-            <input type="button" value="Search" onclick="find();" />
+            <input type="button" value="Search" id="FindByCategory" />
             <p id="products" />
         </div>
         <div class="box2">
             <h3>Search by Product ID</h3>
             <input type="text" id="productId" size="5" />
-            <input type="button" value="Search" onclick="findProduct();" />
+            <input type="button" value="Search" id="FindByID" />
             <h5>Product Name: </h5>
             <input type="text" id="ProductName" />
             <h5>Category ID: </h5>
@@ -31,9 +31,9 @@
             <input type="text" id="ProductDescription" />
             <h5>URL Imange: </h5>
             <input type="text" id="url" /><br />
-            <input type="button" value="Add" onclick="addProduct()" />
-            <input type="button" value="Update" onclick="updateProduct()" />
-            <input type="button" value="Delete" onclick="deleteProduct()" />
+            <input type="button" value="Add" id="AddProduct" />
+            <input type="button" value="Update" id="UpdateProduct" />
+            <input type="button" value="Delete" id="DeleteProduct" />
         </div>
        </div>
         <div>
@@ -45,7 +45,7 @@
             <div class="box2">
                 <h3>Search by Category ID</h3>
                 <input type="text" id="categoriesdId" size="5" />
-                <input type="button" value="Search" onclick="findCategory();" />
+                <input type="button" value="Search" id="FindCategory" />
                 <p id="category" />
             </div>
             <div class="box2">
@@ -53,225 +53,15 @@
                 <input type="text" id="CategoryName" />
                 <h5>Description: </h5>
                 <input type="text" id="Description" /><br />
-                <input type="button" value="Add" onclick="addCategory()" />
-                <input type="button" value="Update" onclick="updateCategory()" />
-                <input type="button" value="Delete" onclick="deleteCategory()" />
+                <input type="button" value="Add" id="AddCategory" />
+                <input type="button" value="Update" id="UpdateCategory" />
+                <input type="button" value="Delete" id="DeleteCategory" />
             </div>
         </div>
    
     </div>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript">
-
-        var uri = 'api/products';
-
-    $(document).ready(function () {
-        $.getJSON(uri)
-            .done(function (data) {
-                $.each(data, function (key, item) {
-                    //  $('<li>', { text: formatItem(item)}).wrap('#image').attr('src', itemitem.URLImige).appendTo($('#products'));
-                    $('<li>', { text: formatItem(item) }).appendTo($('#products'));
-                });
-            });
-    });
-
-    function formatItem(item) {
-        return item.ProductName + ' : ' + item.ProductDescription
-        }
-
-    function find() {
-        var id = $('#categorydId').val();
-        var name = $('#categoryName').val();
-        $('#products').empty();
-        $.getJSON(uri + '?' + 'idCategory=' + id + '&' + 'nameCategory=' + name)
-            .done(function (data) {
-                $.each(data, function (key, item) {
-                    $("<li><img></li>")
-					.find("img")
-					.attr('src', item.URLImige)
-					.end()
-                    .text(formatItem(item))
-					.appendTo("#products");
-                });
-            })
-            .fail(function (jqXHR, textStatus, err) {
-                $('#products').text('Error: ' + err);
-            });
-    }
-
-    function findProduct() {
-        var id = $('#productId').val();
-        var name = $('#categoryName').val();
-        $.getJSON(uri + '/' + id)
-            .done(function (data) {
-                $('#ProductName').attr('value', data.ProductName);
-                $('#CategoryID').attr('value', data.IdCategory);
-                $('#ProductDescription').attr('value', data.ProductDescription);
-                $('#url').attr('value', data.URLImige);
-            })
-            .fail(function (jqXHR, textStatus, err) {
-                $('#products').text('Error: ' + err);
-            });
-    }
-
-    function getProduct()
-    {
-        var name = $('#ProductName').val();
-        var categoriID = $('#CategoryID').val();
-        var description = $('#ProductDescription').val();
-        var url = $('#url').val();
-
-        return {
-            "IdCategory": categoriID,
-            "ProductName": name,
-            "ProductDescription": description,
-            "URLImige" : url
-        }
-
-    }
-
-    function updateProduct()
-    {
-        var id = $('#productId').val();
-        var value = getProduct();
-
-        $.ajax({
-            url: uri + '/' + id,
-            type: 'PUT',
-            data: JSON.stringify(value),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-
-    function addProduct()
-    {
-        var value = getProduct();
-        $.ajax({
-            url: uri,
-            type: 'POST',
-            data: JSON.stringify(value),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-
-    function deleteProduct()
-    {
-        var id = $('#productId').val();
-        $.ajax({
-            url: uri + '/' + id,
-            type: 'DELETE',
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-
-    var uriC = 'api/categories';
-
-    function formatCategory(category) {
-        return category.CategoryName + " : " + category.Description;
-    }
-
-    $(document).ready(function () {
-        $.getJSON(uriC)
-            .done(function (data) {
-                $.each(data, function (key, item) {
-                    $('<li>', { text: formatCategory(item) }).appendTo($('#category'));
-                });
-            });
-    });
-
-    function findCategory() {
-        var id = $('#categoriesdId').val();
-        $.getJSON(uriC + '/' + id)
-            .done(function (data) {
-                $('#category').text(formatCategory(data));
-                $('#CategoryName').attr('value', data.CategoryName);
-                $('#Description').attr('value', data.Description);
-            })
-            .fail(function (jqXHR, textStatus, err) {
-                $('#category').text('Error: ' + err);
-            });
-    }
-
-    function addCategory()
-    {
-        var value = getCategory();
-        $.ajax({
-            url: uriC,
-            type: 'POST',
-            data: JSON.stringify(value),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-    function updateCategory()
-    {
-        var id = $('#categoriesdId').val();
-        var value = getCategory();
-
-        $.ajax({
-            url: uriC + '/' + id,
-            type: 'PUT',
-            data: JSON.stringify(value),
-            contentType: "application/json;charset=utf-8",
-            success: function (data) {
-                WriteResponse(data);
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
-        });
-    }
-
-    function deleteCategory()
-    {
-        var id = $('#categoriesdId').val();
-            $.ajax({
-                url: uriC + '/' + id,
-                type: 'DELETE',
-                contentType: "application/json;charset=utf-8",
-                success: function (data) {
-                    WriteResponse(data);
-                },
-                error: function (x, y, z) {
-                    alert(x + '\n' + y + '\n' + z);
-                }
-            });
-        }
-
-    function getCategory()
-    {
-        var name = $('#CategoryName').val();
-        var description = $('#Description').val();
-   
-        return {
-            "CategoryName": name,
-            "Description": description,
-        }
-    }
-
-    </script>
+    <script src="~/Scripts/productscript.js"></script>
+    <script src="~/Scripts/categoryscript.js"></script>
   </body>
 </html>

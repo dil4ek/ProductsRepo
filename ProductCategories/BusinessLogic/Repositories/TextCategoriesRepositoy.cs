@@ -71,8 +71,9 @@ namespace BusinessLogic.Repositories
 
         private int GetCategoryID() {
             IEnumerable<Categories> list = GetAll();
-            int id = list.Count() + 1;
-            return id;        
+            Categories lastCategory = list.LastOrDefault();
+            int idLastCategory = int.Parse(lastCategory.ID);
+            return idLastCategory + 1;
         }
      }
 }
