@@ -20,6 +20,8 @@ namespace BusinessLogic.Repositories
    public class TextProductsRepositoy : IProductsRepository
     {
         private MongoCollection<Products> collection;
+        private Categories category = new Categories();
+        private TextCategoriesRepositoy categoryRepo = new TextCategoriesRepositoy();
 
         public TextProductsRepositoy()
         {
@@ -31,9 +33,6 @@ namespace BusinessLogic.Repositories
 
         public IEnumerable<Products> GetProduct(string idCategory, string nameCategory)
         {
-            Categories category = new Categories();
-            TextCategoriesRepositoy categoryRepo = new TextCategoriesRepositoy();
-
             if (idCategory != null)
             { 
                 var query = Query.EQ("IdCategory", idCategory);
@@ -43,7 +42,7 @@ namespace BusinessLogic.Repositories
             if (nameCategory != null)
             {
                 category = categoryRepo.GetByName(nameCategory);
-                var query = Query.EQ("IdCategory", category.ID);
+                var query = Query.EQ("IdCategory", category.Id);
                 return collection.Find(query); ;           
             }
 
@@ -57,12 +56,22 @@ namespace BusinessLogic.Repositories
 
         public Products GetById(string id)
         {
-            return collection.FindOneById(id); 
+            return collection.FindOneById(id);
         }
 
         public Products Add(Products item)
         {
-            item.ID = GetCategoryID().ToString();
+          
+            var categoryID = item.IdCategory;
+            if (categoryRepo.GetById(categoryID) == null)
+            {
+                //throw new ArgumentException("No category found");
+                return null;
+
+            };
+
+            // item.Id = ObjectId.GenerateNewId().ToString();
+            item.Id = GetID();
             collection.Insert(item);
             return item;
         }
@@ -73,29 +82,35 @@ namespace BusinessLogic.Repositories
             collection.Remove(query);
         }
 
-        public void UpdateProducts(string id, Products item)
+        public void UpdateItem(Products item)
         {
-            var query = Query.EQ("_id", id);
+            var query = Query.EQ("_id", item.Id);
             if (item == null)
             {
                 throw new ArgumentNullException();
             
             }
 
-            var udpate = Update.Set("ID", id)
-                               .Set("IdCategory", item.IdCategory)
+            var categoryID = item.IdCategory;
+            if (categoryID == null)
+            {
+                throw new ArgumentNullException();
+
+            }
+
+            var udpate = Update.Set("IdCategory", item.IdCategory)
                                .Set("ProductName", item.ProductName)
-                               .Set("ProductDescription", item.ProductDescription)
-                               .Set("URLImige", item.URLImige);
+                               .Set("ProductDescription", item.ProductDescription);
             var result = collection.Update(query, udpate);
         }
 
-        private int GetCategoryID()
+        private string GetID()
         {
             IEnumerable<Products> list = GetAll();
             Products lastProduct = list.LastOrDefault();
-            int idLastProduct = int.Parse(lastProduct.ID);
-            return idLastProduct+1;
+            int idLastProduct = lastProduct != null ? int.Parse(lastProduct.Id) : 0;
+            int idNum = idLastProduct + 1;
+            return idNum.ToString();
         }
     }
 }

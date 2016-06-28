@@ -32,7 +32,6 @@ $("#FindByCategory").click(function() {
 
 $("#FindByID").click(function () {
     var id = $('#productId').val();
-    var name = $('#categoryName').val();
     $.getJSON(uri + '/' + id)
         .done(function (data) {
             $('#ProductName').attr('value', data.ProductName);
@@ -56,6 +55,7 @@ $("#UpdateProduct").click(function() {
         contentType: "application/json;charset=utf-8",
         success: function (data) {
             WriteResponse(data);
+            refreshInuts();
         },
         error: function (x, y, z) {
             alert(x + '\n' + y + '\n' + z);
@@ -119,9 +119,9 @@ function getProduct() {
 }
 
 function refreshInuts() {
-    $('#productId').val(' ');
-   $('#ProductName').val(' ');
-    $('#CategoryID').val(' ');
-   $('#ProductDescription').val(' ');
-   $('#url').val(' ');
+    $('#productId').val(" ");
+   $('#ProductName').val(" ");
+    $('#CategoryID').val(" ");
+   $('#ProductDescription').val(" ");
+   $('#url').val(" ");
 }

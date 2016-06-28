@@ -18,6 +18,10 @@ C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCateg
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Microsoft.Owin.Security.OAuth.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Microsoft.Owin.Security.Twitter.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Bson.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Core.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Legacy.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Newtonsoft.Json.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Owin.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Net.Http.Formatting.dll
@@ -32,11 +36,10 @@ C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCateg
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Web.WebPages.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Web.WebPages.Razor.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\WebGrease.dll
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Legacy.dll
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.dll
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Bson.dll
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Core.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\BusinessLogic.pdb
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Bson.xml
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.xml
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Legacy.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Newtonsoft.Json.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Net.Http.Formatting.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Web.Helpers.xml
@@ -64,9 +67,6 @@ C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCateg
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Microsoft.Owin.Security.Twitter.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\System.Web.Http.Owin.xml
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.Legacy.xml
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Driver.xml
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\bin\MongoDB.Bson.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\obj\Debug\ProductsCategoriesAPI.csprojResolveAssemblyReference.cache
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\obj\Debug\ProductsCategoriesAPI.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductsCategoriesAPI\obj\Debug\ProductsCategoriesAPI.pdb

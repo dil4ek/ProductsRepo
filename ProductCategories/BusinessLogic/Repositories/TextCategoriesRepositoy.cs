@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 //business logic
 using BusinessLogic.Interfaces;
 using BusinessLogic;
@@ -49,7 +48,7 @@ namespace BusinessLogic.Repositories
 
         public Categories Add(Categories item)
         {
-            item.ID = GetCategoryID().ToString();
+            item.Id = GetID();
             collection.Insert(item);
             return item;
         }
@@ -60,20 +59,22 @@ namespace BusinessLogic.Repositories
             collection.Remove(query);
         }
 
-        public void UpdateCategories(string id, Categories item)
+        public void UpdateItem(Categories item)
         {
-            var query = Query.EQ("_id", id);
+            var query = Query.EQ("_id", item.Id);
 
             var udpate = Update.Set("CategoryName", item.CategoryName)
                                .Set("Description", item.Description);
             var result =  collection.Update(query, udpate);     
         }
 
-        private int GetCategoryID() {
+        private string GetID()
+        {
             IEnumerable<Categories> list = GetAll();
             Categories lastCategory = list.LastOrDefault();
-            int idLastCategory = int.Parse(lastCategory.ID);
-            return idLastCategory + 1;
+            int idLastCategory = lastCategory != null ? int.Parse(lastCategory.Id) : 0;
+            int idNum = idLastCategory + 1;
+            return idNum.ToString();
         }
      }
 }

@@ -13,10 +13,8 @@ namespace BusinessLogic
     public class Categories
     {
         [BsonId]
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
-
-
     }
 }

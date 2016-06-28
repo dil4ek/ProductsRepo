@@ -5,63 +5,90 @@
     <link href="../../Content/Site.css" rel="stylesheet" />
     <link href="~/Content/myCSS.css" rel="stylesheet" />
 </head>
-<body id="body">
-    <div class="main-content">
-        <div>
-        <div class="box2">
-            <h2>All Products</h2>
-            <ul id="products" />
-        </div>
-        <div class="box2">
-            <h3>Search by Category ID and/or Category Name</h3>
-            <input type="text" id="categorydId" size="5" />
-            <input type="text" id="categoryName" size="10" />
-            <input type="button" value="Search" id="FindByCategory" />
-            <p id="products" />
-        </div>
-        <div class="box2">
-            <h3>Search by Product ID</h3>
-            <input type="text" id="productId" size="5" />
-            <input type="button" value="Search" id="FindByID" />
-            <h5>Product Name: </h5>
-            <input type="text" id="ProductName" />
-            <h5>Category ID: </h5>
-            <input type="text" id="CategoryID" size="5" />
-            <h5>Product Description: </h5>
-            <input type="text" id="ProductDescription" />
-            <h5>URL Imange: </h5>
-            <input type="text" id="url" /><br />
-            <input type="button" value="Add" id="AddProduct" />
-            <input type="button" value="Update" id="UpdateProduct" />
-            <input type="button" value="Delete" id="DeleteProduct" />
-        </div>
-       </div>
-        <div>
-            <div class="box2">
+<body id="body" ng-app="ProductCategories">
+    <section class="main-content">
+        <section class="tab" ng-controller="TabController as tab">
+            <ul class="nav nav-pills">
+                <li ng-class="{ active: tab.isSet(1)}">
+                    <a href ="" ng-click="tab.setTab(1)">Products</a>
+                </li>
+                <li ng-class="{ active: tab.isSet(2) }">
+                    <a href ="" ng-click="tab.setTab(2)">Categories</a>
+                </li>
+            </ul>
+            <div ng-controller="productController" ng-show="tab.isSet(1)">            
+                <h2>Products List:</h2>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>ProductName</th>
+                        <th>CategoryID</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr ng-repeat="product in allproducts">
+                        <td>{{ product.Id }}</td>
+                        <td>{{ product.ProductName }}</td>
+                        <td>{{product.IdCategory}}</td>
+                        <td>{{ product.ProductDescription}}</td>
+                    </tr>
+                </table>
+                    <div class="box2">
+                        <h3>Search by Category ID and/or Category Name</h3>
+                        <input type="text" id="categorydId" size="5" ng-model="category" />
+                        <input type="text" id="categoryName" size="10" ng-model="namecategory" />
+                        <input type="button" value="Search" id="FindByCategory" ng-click="FindProducts(category, namecategory )" />
+                        <ul ng-repeat="searchproduct in searchproducts">
+                            <li>{{searchproduct.ProductName}}</li>
+                        </ul>
+                      </div>
+                    <div class="box2">
+                        <h3>Search by Product ID</h3>
+                        <input type="text" id="productId" size="5" ng-model="id" />
+                        <input type="button" value="Search" id="FindByID" ng-click="FindProductId(id)" />
+                        <h5>Product Name: </h5>
+                        <input type="text" id="ProductName" ng-model="prodName" />
+                        <h5>Category ID: </h5>
+                        <input type="text" id="CategoryID" size="5" ng-model="categoryid" />
+                        <h5>Product Description: </h5>
+                        <input type="text" id="ProductDescription" ng-model="prodDescrpt" />
+                        <div>
+                        <input type="button" value="Add" id="AddProduct" ng-click="AddProd(id)" />
+                        <input type="button" value="Update" id="UpdateProduct" ng-click="UpdateProd(id)" />
+                        <input type="button" value="Delete" id="DeleteProduct" ng-click="DeleteProd(id)" />
+                        </div>
+                    </div>
+            </div>         
+            <div ng-controller="categoryController" ng-show="tab.isSet(2)">
                 <h2>All Categories</h2>
-                <ol id="category" />
-                <img id="image" />
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>CategoryName</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr ng-repeat="category in allpcategory">
+                        <td>{{category.Id }}</td>
+                        <td>{{ category.CategoryName }}</td>
+                        <td>{{category.Description}}</td>
+                    </tr>
+                </table>
+                    <div class="box2">
+                        <h3>Search by Category ID</h3>
+                        <input type="text" id="categoriesdId" size="5" ng-model="idCategory" />
+                        <input type="button" value="Search" id="FindCategory" ng-click="findCategoryClick(idCategory)" />
+                        <h5>Category Name: </h5>
+                        <input type="text" id="CategoryName" ng-model="cateforyName" />
+                        <h5>Description: </h5>
+                        <input type="text" id="Description" ng-model="descriptionCatgory" /><br />
+                        <input type="button" value="Add" id="AddCategory" ng-click="AddCategory(idCategory)" />
+                        <input type="button" value="Update" id="UpdateCategory" ng-click="UpdateCategory(idCategory)" />
+                        <input type="button" value="Delete" id="DeleteCategory" ng-click="DeleteProd(idCategory)" />
+                    </div>         
             </div>
-            <div class="box2">
-                <h3>Search by Category ID</h3>
-                <input type="text" id="categoriesdId" size="5" />
-                <input type="button" value="Search" id="FindCategory" />
-                <p id="category" />
-            </div>
-            <div class="box2">
-                <h5>Category Name: </h5>
-                <input type="text" id="CategoryName" />
-                <h5>Description: </h5>
-                <input type="text" id="Description" /><br />
-                <input type="button" value="Add" id="AddCategory" />
-                <input type="button" value="Update" id="UpdateCategory" />
-                <input type="button" value="Delete" id="DeleteCategory" />
-            </div>
-        </div>
-   
-    </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/productscript.js"></script>
-    <script src="~/Scripts/categoryscript.js"></script>
-  </body>
+        </section>
+    </section>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script> 
+</body>
 </html>

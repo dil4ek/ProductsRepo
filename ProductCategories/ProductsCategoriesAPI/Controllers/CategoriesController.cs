@@ -43,9 +43,9 @@ namespace ProductsCategoriesAPI.Controllers
         }
 
         // PUT: api/Categories/5
-        public void Put(string id, Categories value)
+        public void Put(Categories value)
         {
-            categoryRepo.UpdateCategories(id, value);
+            categoryRepo.UpdateItem(value);
         }
 
         // DELETE: api/Categories/5

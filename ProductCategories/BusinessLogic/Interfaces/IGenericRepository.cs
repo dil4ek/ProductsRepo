@@ -12,7 +12,7 @@ namespace BusinessLogic.Interfaces
         T GetById(string id);
         T Add(T item);
         void Delete(string id);
-        //void Update(string id, T item);
+        void UpdateItem(T item);
 
     }
 }

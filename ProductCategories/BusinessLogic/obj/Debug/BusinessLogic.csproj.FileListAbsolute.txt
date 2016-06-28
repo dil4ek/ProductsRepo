@@ -1,8 +1,5 @@
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\BusinessLogic.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\BusinessLogic.pdb
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.dll
-C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.pdb
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Bson.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Driver.Core.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Driver.dll
@@ -10,3 +7,6 @@ C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Bson.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Driver.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\bin\Debug\MongoDB.Driver.Legacy.xml
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.pdb
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache

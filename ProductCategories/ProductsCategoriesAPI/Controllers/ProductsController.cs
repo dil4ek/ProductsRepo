@@ -27,10 +27,16 @@ namespace ProductsCategoriesAPI.Controllers
             Products product = prodcutRepo.GetById(id);
             if (product == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                var resp = new HttpResponseMessage(HttpStatusCode.NotFound)
+                {
+                    Content = new StringContent(string.Format("No product with ID = {0}", id)),
+                    ReasonPhrase = "Product ID Not Found"
+                };
+                throw new HttpResponseException(resp);
+                //throw new HttpResponseException(HttpStatusCode.NotFound);         
             }
 
-            return product;
+            return product;          
         }
 
         public IEnumerable<Products> Get(string idCategory, string nameCategory)
@@ -38,7 +44,7 @@ namespace ProductsCategoriesAPI.Controllers
             IEnumerable<Products> product = prodcutRepo.GetProduct(idCategory, nameCategory);
             if (product == null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+              throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             return product;
@@ -47,13 +53,19 @@ namespace ProductsCategoriesAPI.Controllers
         // POST: api/Products
         public Products Post(Products value)
         {
-            return prodcutRepo.Add(value);
+            var item = prodcutRepo.Add(value);
+            if (item == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+
+            return item;
         }
 
         // PUT: api/Products/5
-        public void Put(string id, Products value)
+        public void Put(Products value)
         {
-            prodcutRepo.UpdateProducts(id, value);
+            prodcutRepo.UpdateItem(value);
         }
 
         // DELETE: api/Products/5

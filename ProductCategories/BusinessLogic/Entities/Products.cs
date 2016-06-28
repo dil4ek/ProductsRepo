@@ -13,10 +13,9 @@ namespace BusinessLogic
     public class Products
     {
         [BsonId]
-        public string ID { get; set; }
+        public string Id{ get; set; }
         public string IdCategory { get; set; }
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
-        public string URLImige { get; set; }
     }
 }

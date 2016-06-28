@@ -13,3 +13,10 @@ C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCatego
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\MongoDB.Driver.Legacy.xml
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\BusinessLogic.dll
 C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\BusinessLogic.pdb
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\Antlr3.Runtime.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\Newtonsoft.Json.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\System.Web.Optimization.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\WebGrease.dll
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\Antlr3.Runtime.pdb
+C:\SWTOOLS\Documents\Visual Studio 2013\Projects\ProductCategories\ProductCategories\bin\Debug\System.Web.Optimization.xml
